@@ -8,17 +8,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="card mt-2">
 		  <div class="card-body">
 		  	<div class="float-left mr-5">
-				<img src="<?php echo base_url(); ?>/assets/images/posts/<?= $post['image']; ?>" alt="">
+				<img src="<?php echo base_url(); ?>/assets/images/posts/<?= $post['image']; ?>" alt="" width="200	">
 			</div>
 		    <h4 class="card-title"><?= $post['title']; ?></h4>
-		    <p class="card-text">
+		    <div style="height: 100px; overflow: hidden">
+		    	<p class="card-text">
 		    	<?php 
-		    		echo substr($post['content'], 0, $string_length); 
-		    		if ($string_length < strlen($post['content'])) {
-		    			echo "...";
-		    		}
+		    		echo str_replace("&lt;","<",str_replace("&gt;",">",$post['content'])); 
 		    	?>
 		    </p>
+		    </div>
 		    <a href="posts/<?= $post['id']?>" class="card-link">More</a>
 		  </div>
 	</div>

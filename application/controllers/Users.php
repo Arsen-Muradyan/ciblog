@@ -44,6 +44,7 @@ parent::__construct();
 			$user = $this->user->login($email, $password);
 			if ($user) {
 				$this->session->set_userdata(array(
+					'id' => $user['id'],
 					'email' => $user['email'],
 					'logged_in' => TRUE
 				));
@@ -53,7 +54,10 @@ parent::__construct();
 				$this->load->view("users/login");
 				$this->load->view("templates/footer");
 			}
-
 		}
+	}
+	public function logout() {
+		$this->session->unset_userdata(array("id", 'email', 'logged_in'));
+		redirect('/posts');
 	}
 }

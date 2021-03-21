@@ -8,6 +8,7 @@ $uri = $this->uri->uri_string();
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://bootswatch.com/4/lumen/bootstrap.css">
+  <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 	<title>Document</title>
 </head>
 <body>
@@ -21,9 +22,27 @@ $uri = $this->uri->uri_string();
       <li class="nav-item <?php if ($uri == 'posts') echo 'active'; ?>">
         <a class="nav-link" href="/posts">Posts</a>
       </li>
-      <li class="nav-item <?php if ($uri == 'posts/create') echo 'active'; ?>">
-        <a class="nav-link" href="/posts/create">New Post</a>
-      </li>
+     <?php if ($this->session->userdata('logged_in')): ?>
+        <li class="nav-item <?php if ($uri == 'posts/create') echo 'active'; ?>">
+          <a class="nav-link" href="/posts/create">New Posts</a>
+        </li>
+     <?php endif; ?>
     </ul>
+    <?php if ($this->session->userdata('logged_in')): ?>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item <?php if ($uri == 'users/logout') echo 'active'; ?>">
+            <a class="nav-link" href="/users/logout">Logout</a>
+          </li>
+        </ul>
+      <?php else: ?>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item <?php if ($uri == 'users/login') echo 'active'; ?>">
+            <a class="nav-link" href="/users/login">Login</a>
+          </li>
+          <li class="nav-item <?php if ($uri == 'users/register') echo 'active'; ?>">
+            <a class="nav-link" href="/users/register">Register</a>
+          </li>
+        </ul>
+     <?php endif; ?>
   </div>
 </nav>

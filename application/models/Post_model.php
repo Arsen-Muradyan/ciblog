@@ -13,5 +13,11 @@
 			$this->db->insert("posts", $data);
 			return $this->db->insert_id();	
 		}
-
+		public function update($data) {
+			$this->db->set("title", $data['title']);
+			$this->db->set("content", $data['content']);
+			$this->db->set("image", $data['image']);
+			$this->db->where('id', $data['id']);
+			$this->db->update('posts');
+		}
 	}
