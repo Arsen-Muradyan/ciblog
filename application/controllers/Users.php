@@ -7,6 +7,7 @@ parent::__construct();
 		$this->load->helper('url');
 	}
 	public function register() {
+		if ($this->session->userdata("logged_in")) redirect("/");
 		$this->form_validation->set_rules('username', "Username", "required");
 		$this->form_validation->set_rules('email', 'Email', "required|is_unique[users.email]");
 		$this->form_validation->set_rules('password', 'Password', "required");
@@ -30,6 +31,7 @@ parent::__construct();
 		}
 	}
 	public function login() {
+		if ($this->session->userdata("logged_in")) redirect("/");
 		$this->form_validation->set_rules('email', 'Email', "required");
 		$this->form_validation->set_rules('password', 'Password', "required");
 		if ($this->form_validation->run() == false) {

@@ -19,14 +19,17 @@ $uri = $this->uri->uri_string();
   </button>
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item <?php if ($uri == 'posts') echo 'active'; ?>">
-        <a class="nav-link" href="/posts">Posts</a>
-      </li>
      <?php if ($this->session->userdata('logged_in')): ?>
+        <li class="nav-item <?php if ($uri == 'dashboard') echo 'active'; ?>">
+          <a class="nav-link" href="/dashboard">Dashboard</a>
+        </li>
         <li class="nav-item <?php if ($uri == 'posts/create') echo 'active'; ?>">
           <a class="nav-link" href="/posts/create">New Posts</a>
         </li>
      <?php endif; ?>
+      <li class="nav-item <?php if ($uri == 'posts') echo 'active'; ?>">
+        <a class="nav-link" href="/posts">Posts</a>
+      </li>
     </ul>
     <?php if ($this->session->userdata('logged_in')): ?>
         <ul class="navbar-nav ml-auto">

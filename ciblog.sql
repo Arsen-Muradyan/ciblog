@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2021 at 03:35 PM
+-- Generation Time: Mar 23, 2021 at 07:52 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -32,6 +32,7 @@ CREATE TABLE `posts` (
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `image` text NOT NULL,
+  `user_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -39,13 +40,8 @@ CREATE TABLE `posts` (
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `title`, `content`, `image`, `created_at`) VALUES
-(9, 'Post 1', '<b>this is post 1 body </b>', 'QtInstaller-256_550x825.png', '2021-03-20 13:17:58'),
-(10, 'Post 2', 'xsaxas', 'QtInstaller-256_550x825.png', '2021-03-20 13:19:44'),
-(11, 'xasxa', 'xasxa', 'noimage.jpg', '2021-03-20 13:19:55'),
-(12, '[removed]  alert&#40;\"Hello\"&#41; [removed]', '[removed]\r\n alert&#40;\"Hello\"&#41;\r\n[removed]', 'noimage.jpg', '2021-03-20 13:21:48'),
-(13, 'xasxa', '&lt;b&gt;xasxa&lt;/b&gt;', 'noimage.jpg', '2021-03-20 13:22:52'),
-(14, 'xasxa', 'xasxas', 'QtInstaller-256_550x825.png', '2021-03-20 13:24:14');
+INSERT INTO `posts` (`id`, `title`, `content`, `image`, `user_id`, `created_at`) VALUES
+(22, 'Qt ', '&lt;table border=&quot;1&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot; xss=removed&gt;\r\n &lt;tbody&gt;\r\n  &lt;tr&gt;\r\n   &lt;td&gt;xasxa&lt;/td&gt;\r\n   &lt;td&gt;xasxaxas&lt;/td&gt;\r\n  &lt;/tr&gt;\r\n  &lt;tr&gt;\r\n   &lt;td&gt; &lt;/td&gt;\r\n   &lt;td&gt; &lt;/td&gt;\r\n  &lt;/tr&gt;\r\n  &lt;tr&gt;\r\n   &lt;td&gt; &lt;/td&gt;\r\n   &lt;td&gt; &lt;/td&gt;\r\n  &lt;/tr&gt;\r\n  &lt;tr&gt;\r\n   &lt;td&gt; &lt;/td&gt;\r\n   &lt;td&gt; &lt;/td&gt;\r\n  &lt;/tr&gt;\r\n  &lt;tr&gt;\r\n   &lt;td&gt; &lt;/td&gt;\r\n   &lt;td&gt; &lt;/td&gt;\r\n  &lt;/tr&gt;\r\n  &lt;tr&gt;\r\n   &lt;td&gt; &lt;/td&gt;\r\n   &lt;td&gt; &lt;/td&gt;\r\n  &lt;/tr&gt;\r\n  &lt;tr&gt;\r\n   &lt;td&gt; &lt;/td&gt;\r\n   &lt;td&gt; &lt;/td&gt;\r\n  &lt;/tr&gt;\r\n &lt;/tbody&gt;\r\n&lt;/table&gt;\r\n\r\n&lt;p&gt; &lt;/p&gt;\r\n', 'QtInstaller-256_550x825.png', 1, '2021-03-21 19:11:58');
 
 -- --------------------------------------------------------
 
@@ -65,7 +61,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
-(1, 'Arsen', 'arsenmuradyan604@gmail.com', '77bd74e8f1db91641369f6743fdfb174');
+(1, 'Arsen', 'arsenmuradyan604@gmail.com', '77bd74e8f1db91641369f6743fdfb174'),
+(2, 'John', 'john@mail.com', '6e0b7076126a29d5dfcbd54835387b7b');
 
 --
 -- Indexes for dumped tables
@@ -92,13 +89,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

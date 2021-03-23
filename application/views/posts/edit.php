@@ -8,7 +8,7 @@
 		<br>
 		<input type="file" name="post_image">
 		<br><br>
-		<input type="submit" class="btn btn-primary" value="Create Post">
+		<input type="submit" class="btn btn-primary" value="Update">
 	</form>
 </div>
 <script>
